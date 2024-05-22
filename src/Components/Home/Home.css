@@ -1,0 +1,45 @@
+:root {
+  /* font brands  */
+  --font: "Poppins", sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  /* support colors */
+  --background: #7a7b78;
+  --dark: #000;
+  --light: #fff;
+  --warning: #ffcc00;
+  --danger: #f2180a;
+  --info: #2ea5dc;
+  --success: #11af41;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+body {
+  transition: all 0.5s ease-in-out;
+}
+
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: var(--light);
+    color: var(--dark);
+  }
+}
