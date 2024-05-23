@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <AuthProvider>
+        {/* not it */}
         <RouterProvider router={Routes()} />
         <Footer />
       </AuthProvider>

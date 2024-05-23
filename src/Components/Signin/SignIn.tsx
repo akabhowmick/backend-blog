@@ -17,7 +17,7 @@ const initialFormState = {
   numberValid: false,
 };
 
-export const SignInForm = () => {
+export const SignIn = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -126,7 +126,7 @@ export const SignInForm = () => {
     if (formType === "login") {
       // userSignedIn = await signInUser(user);
     } else {
-      const newUserId =""; //await signUpUser(user);
+      const newUserId = ""; 
       if (newUserId) {
         userSignedIn = true;
       }
@@ -136,6 +136,8 @@ export const SignInForm = () => {
         firstName: "",
         lastName: "",
         phone: "",
+        followers: [],
+        posts: [],
       };
       console.log(newUser)
       // addUserToDB(newUser);
