@@ -8,6 +8,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuthContext } from "../../providers/AuthProvider";
 
+//! implement search bar functionality 
+
 export const Navbar = () => {
   const { loggedIn } = useAuthContext();
   const [showNavbar, setShowNavbar] = useState(false);
@@ -18,7 +20,6 @@ export const Navbar = () => {
 
   const navbarLinks = [
     { linkName: "Account", linkRoute: "/account" },
-    { linkName: "Home", linkRoute: "/" },
   ];
 
   const AccountLink = (
