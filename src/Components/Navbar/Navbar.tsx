@@ -16,7 +16,10 @@ export const Navbar = () => {
     setShowNavbar(!showNavbar);
   };
 
-  const navbarLinks = [{ linkName: "Account", linkRoute: "/account" }];
+  const navbarLinks = [
+    { linkName: "Account", linkRoute: "/account" },
+    { linkName: "Home", linkRoute: "/" },
+  ];
 
   const AccountLink = (
     <NavLink
