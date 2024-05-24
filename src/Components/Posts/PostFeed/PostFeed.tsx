@@ -7,14 +7,15 @@ export const PostFeed = () => {
     { id: "3", title: "Blog 1", subtitle: "", category: "", content: [""], date: Date.now() },
   ];
 
+  //! styling will be based on this 
   const articleBanners = articles.map((article) => {
     return (
-      <div className="article">
-        <h2>Article Title 1</h2>
-        {article.content.map((paragraph) => {
-          return <p>{paragraph}</p>;
+      <div key={article.id} className="article">
+        <h2>article.title</h2>
+        {article.content.map((paragraph, index) => {
+          return <p key={index}>{paragraph}</p>;
         })}
-        <a href="#" className="read-more">
+        <a href={`#${article.id}`} className="read-more">
           Read more...
         </a>
       </div>

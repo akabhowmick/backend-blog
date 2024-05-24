@@ -15,7 +15,7 @@ export const Home = () => {
       </div>
       <div className="container">
         <div className="article">
-          <h2>Article Title 1</h2>
+          <h2 className="text-3xl font-bold underline">Article Title 1</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu.
             Proin ac consequat felis. Phasellus malesuada lacus vel quam tempor, a facilisis lorem
