@@ -31,6 +31,6 @@ export interface BlogPost {
   subtitle: string;
   category: string;
   content: string[];
-  date: Date;
+  date: number | Date;
 }
 
