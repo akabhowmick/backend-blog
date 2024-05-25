@@ -5,6 +5,7 @@ import { Account } from "../Account/Account";
 import { PostFeed } from "../Posts/PostFeed/PostFeed";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
 import { SignIn } from "../Signin/SignIn";
+import { Pricing } from "../Pricing/Pricing";
 
 export function Routes() {
   console.log("Routes");
@@ -15,6 +16,7 @@ export function Routes() {
         <Route path="/account" element={<Account />} />
         <Route path="/feed" element={<PostFeed />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/pricing" element={<Pricing/>} />
         <Route path="*" element={<PageNotFound />} />
 
       </Route>
