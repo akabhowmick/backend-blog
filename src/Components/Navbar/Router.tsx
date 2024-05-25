@@ -8,7 +8,6 @@ import { SignIn } from "../Signin/SignIn";
 import { Pricing } from "../Pricing/Pricing";
 
 export function Routes() {
-  console.log("Routes");
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Navbar />}>
@@ -18,7 +17,6 @@ export function Routes() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/pricing" element={<Pricing/>} />
         <Route path="*" element={<PageNotFound />} />
-
       </Route>
     )
   );
