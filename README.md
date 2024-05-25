@@ -11,7 +11,4 @@ Front End:
 3. Tailwind CSS
 
 Back End:
-
 1. MongoDB
-
-MERN stack 
