@@ -19,7 +19,6 @@ export function Routes() {
         <Route path="/pricing" element={<Pricing/>} />
         <Route path="/about" element={<About/>} />
         <Route path="*" element={<PageNotFound />} />
-
       </Route>
     )
   );
