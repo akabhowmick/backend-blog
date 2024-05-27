@@ -125,8 +125,8 @@ export const Navbar = () => {
                   x-show="!showMenu"
                   fill="none"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
