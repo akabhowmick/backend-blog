@@ -1,70 +1,113 @@
 import "./Navbar.css";
-import { useState } from "react";
-
-import { NavLink, Outlet } from "react-router-dom";
-import { NavUnlisted } from "./NavbarStyles";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useAuthContext } from "../../providers/AuthProvider";
-
-//! implement search bar functionality
+// import { useState } from "react";
+import { Outlet } from "react-router-dom";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import { useAuthContext } from "../../providers/AuthProvider";
 
 export const Navbar = () => {
-  const { loggedIn } = useAuthContext();
-  const [showNavbar, setShowNavbar] = useState(false);
+  // const { loggedIn } = useAuthContext();
+  // const [showNavbar, setShowNavbar] = useState(false);
+  // const handleShowNavbar = () => {
+  //   setShowNavbar(!showNavbar);
+  // };
 
-  const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar);
-  };
+  const navbarLinks = [
+    { linkName: "Home", linkRoute: "/" },
+    { linkName: "About", linkRoute: "/about" },
+    { linkName: "Account", linkRoute: "/account" },
+  ];
 
-  const navbarLinks = [{ linkName: "Account", linkRoute: "/account" }];
-
-  const AccountLink = (
-    <NavLink
-      to={loggedIn ? "/account" : "/signin"}
-      className={({ isActive, isPending, isTransitioning }) =>
-        [
-          isPending ? "pending" : "",
-          isActive ? "active" : "",
-          isTransitioning ? "transitioning" : "",
-        ].join(" ")
-      }
-    >
-      <li>
-        <AccountCircleIcon fontSize="large" />
-      </li>
-    </NavLink>
-  );
-
-  const linksWithNavLink = (
-    <div className="navbar-links-container">
-      {navbarLinks.map((link, index) => (
-        <NavLink
-          onClick={() => setShowNavbar(false)}
-          key={index}
-          to={link.linkRoute}
-          className={({ isActive, isPending, isTransitioning }) =>
-            [
-              isPending ? "pending" : "",
-              isActive ? "active" : "",
-              isTransitioning ? "transitioning" : "",
-            ].join(" ")
-          }
-        >
-          <li>{link.linkName}</li>
-        </NavLink>
-      ))}
-      {AccountLink}
+  const desktopLinks = (
+    <div className="hidden md:block">
+      <ul className="flex items-center space-x-8">
+        {navbarLinks.map((link) => {
+          return (
+            <li key={link.linkName}>
+              <a href={link.linkName} className="text-white">
+                {link.linkName}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 
-  const logoHeaderLink = (
-    <NavLink onClick={() => setShowNavbar(false)} to="/" id="logo-with-title">
-      <img className="navbar-logo" src="" alt="tkd-main-logo" />
-      <h2>Medium Clone!</h2>
-    </NavLink>
+  const mobileLinks = (
+    <div className="mobile-menu hidden md:hidden">
+      <ul className="mt-4 space-y-4">
+        {navbarLinks.map((link) => {
+          return (
+            <li key={link.linkName}>
+              <a href={link.linkName} className="block px-4 py-2 text-white bg-gray-900 rounded">
+                {link.linkName}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
+
+  // const AccountLink = (
+  //   <NavLink
+  //     to={loggedIn ? "/account" : "/signin"}
+  //     className={({ isActive, isPending, isTransitioning }) =>
+  //       [
+  //         isPending ? "pending" : "",
+  //         isActive ? "active" : "",
+  //         isTransitioning ? "transitioning" : "",
+  //       ].join(" ")
+  //     }
+  //   >
+  //     <li>
+  //       <AccountCircleIcon fontSize="large" />
+  //     </li>
+  //   </NavLink>
+  // );
+
+  // const linksWithNavLink = (
+  //   <div className="navbar-links-container">
+  //     {navbarLinks.map((link, index) => (
+  //       <NavLink
+  //         onClick={() => setShowNavbar(false)}
+  //         key={index}
+  //         to={link.linkRoute}
+  //         className={({ isActive, isPending, isTransitioning }) =>
+  //           [
+  //             isPending ? "pending" : "",
+  //             isActive ? "active" : "",
+  //             isTransitioning ? "transitioning" : "",
+  //           ].join(" ")
+  //         }
+  //       >
+  //         <li>{link.linkName}</li>
+  //       </NavLink>
+  //     ))}
+  //     {AccountLink}
+  //   </div>
+  // );
+
+  {
+    /* <header className="nav-bar">
+          <nav>
+            <nav aria-label="Larger viewport navigation menu with links" className="main-navbar-ul">
+              <ul className="main-regular-links">{linksWithNavLink}</ul>
+  
+              <div className="menu-icon" onClick={handleShowNavbar}>
+                <MenuIcon />
+              </div>
+              <div className="cart-small-screen">{AccountLink}</div>
+              {showNavbar && (
+                <div className="nav-elements">
+                  <ul>{linksWithNavLink}</ul>
+                </div>
+              )}
+            </nav>
+          </nav>
+        </header> */
+  }
 
   return (
     <div className="root-layout">
@@ -74,37 +117,14 @@ export const Navbar = () => {
             <div className="text-white font-bold text-xl">
               <a href="#">Logo</a>
             </div>
-            <div className="hidden md:block">
-              <ul className="flex items-center space-x-8">
-                <li>
-                  <a href="#" className="text-white">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {desktopLinks}
             <div className="md:hidden">
               <button className="outline-none mobile-menu-button">
                 <svg
                   className="w-6 h-6 text-white"
                   x-show="!showMenu"
                   fill="none"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   viewBox="0 0 24 24"
@@ -115,51 +135,7 @@ export const Navbar = () => {
               </button>
             </div>
           </div>
-          <div className="mobile-menu hidden md:hidden">
-            <ul className="mt-4 space-y-4">
-              <li>
-                <a href="#" className="block px-4 py-2 text-white bg-gray-900 rounded">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 text-white bg-gray-900 rounded">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 text-white bg-gray-900 rounded">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 text-white bg-gray-900 rounded">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <header className="nav-bar">
-        <nav>
-          <NavUnlisted
-            aria-label="Larger viewport navigation menu with links"
-            className="main-navbar-ul"
-          >
-            <ul className="main-regular-links">{linksWithNavLink}</ul>
-
-            <div className="menu-icon" onClick={handleShowNavbar}>
-              <MenuIcon />
-            </div>
-            <div className="cart-small-screen">{AccountLink}</div>
-            {showNavbar && (
-              <div className="nav-elements">
-                <ul>{linksWithNavLink}</ul>
-              </div>
-            )}
-            {logoHeaderLink}
-          </NavUnlisted>
+          {mobileLinks}
         </nav>
       </header>
       <main>
