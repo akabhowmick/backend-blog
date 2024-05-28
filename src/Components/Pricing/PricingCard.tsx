@@ -1,9 +1,11 @@
+import { MembershipPricing } from "../Types/interfaces";
+
 export const PricingCard = ({
-  pricingCard,
+  pricingOption,
 }: {
-  pricingCard: { name: string; price: number; perks: string[] };
+  pricingOption: MembershipPricing;
 }) => {
-  const perks = pricingCard.perks.map((perk, index) => {
+  const perks = pricingOption.perks.map((perk, index) => {
     return (
       <li key={index} className="flex items-center gap-2 py-1 text-gray-700">
         <svg
@@ -30,10 +32,10 @@ export const PricingCard = ({
         <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md lg:h-max lg:scale-105 z-10 translate-y-0">
           <div className="p-6 text-center">
             <h5 className="antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-green-500 flex justify-center mt-2 mb-2">
-              {pricingCard.name}
+              {pricingOption.name}
             </h5>
             <h3 className="antialiased tracking-normal font-sans text-3xl font-semibold leading-snug text-blue-gray-900 flex justify-center mt-5 mb-2">
-              {pricingCard.price}
+              {pricingOption.price}
               <span className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 self-end -translate-y-1">
                 /per month
               </span>

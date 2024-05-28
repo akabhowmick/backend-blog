@@ -5,6 +5,7 @@ export interface UserInfo {
   lastName: string;
   email: string;
   phone: string;
+  aboutMe: string;
   followers: string[];
   posts: string[];
 }
@@ -26,7 +27,7 @@ export interface ValidLogin {
 }
 
 export interface BlogPost {
-  id: string; 
+  id: string;
   title: string;
   subtitle: string;
   category: string;
@@ -34,3 +35,8 @@ export interface BlogPost {
   date: number | Date;
 }
 
+export interface MembershipPricing {
+  name: string;
+  price: number;
+  perks: string[];
+}

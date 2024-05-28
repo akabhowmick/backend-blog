@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <footer className="bg-black dark:bg-gray-900">
       <div className="container px-6 py-8 mx-auto">
         <div className="flex flex-col items-center text-center">
           <a href="#">
@@ -12,7 +12,7 @@ export const Footer = () => {
           </a>
 
           <p className="max-w-md mx-auto mt-4 text-gray-500 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Lorem ipsum dolor sit  consectetur.
           </p>
 
           <div className="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center">
@@ -49,8 +49,7 @@ export const Footer = () => {
               className="mx-2 text-sm text-gray-500 transition-colors duration-300 hover:text-gray-500 dark:hover:text-gray-300"
               aria-label="Reddit"
             >
-              {" "}
-              Teams{" "}
+              Teams
             </a>
 
             <a
@@ -58,8 +57,7 @@ export const Footer = () => {
               className="mx-2 text-sm text-gray-500 transition-colors duration-300 hover:text-gray-500 dark:hover:text-gray-300"
               aria-label="Reddit"
             >
-              {" "}
-              Privacy{" "}
+              Privacy
             </a>
 
             <a

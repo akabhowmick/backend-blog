@@ -20,6 +20,43 @@
 3. back end 
   => only users can post/interact with other users
   
-4.random static pages
-  => our story
-  => membership plans 
+
+Timeline: 
+1. watch mock video
+2. set up front end pages 
+  => our story, membership plans (1 day)
+  => edits to the user (1 day)
+  => login/signup (1 day)
+  => posts/feed work (2 days)
+3. back end set up
+  => mongo db 
+  => node js 
+4. testing (?)
+
+
+## 📂 Projects
+### Designs E-Commerce Website (https://github.com/akabhowmick/backend-etsy-e-commerce-template)
+This is a full-stack e-commerce website for an online business. Secure payment processing is facilitated through PayPal integration. There is also an account-making feature that allows the user to keep track of their order history and faster checkout. The business owner can also keep track of all users and see all orders made.
+- **Technologies Used:** React, React-Bootstrap, React Router Dom, MUI, UploadCloud, PayPal integration, Supabase, and Form Spark.
+
+
+### 3DVerse (https://github.com/akabhowmick/3dVerse):
+This is an e-commerce website for your Etsy business. Secure payment processing is facilitated through PayPal integration.
+- **Technologies Used:** React, React-Bootstrap, React Router Dom, MUI, UploadCloud, PayPal integration, Supabase, and Form Spark.
+
+  
+### Queens Finest Prints (https://github.com/akabhowmick/QueensFinestPrints)
+This is an e-commerce website for your Etsy business. Secure payment processing is facilitated through PayPal integration.
+- **Technologies Used:** React, React-Bootstrap, React Router Dom, MUI, UploadCloud, PayPal integration, Supabase, and Form Spark.
+
+
+### TaekwonMaru Website (https://github.com/akabhowmick/TaekwonMaru-React)
+This is a responsive website for TaekwonMaru. The website includes business information, classes, instructors, and contact details. Additionally, it features a contact form through which users can directly communicate with the business owners.
+- **Technologies Used:** React, React-Router-Dom, Typescript and Material UI
+
+## 🛠️ Skills & Technologies
+- **Frontend:** HTML, CSS, JavaScript, React, Redux, TypeScript
+- **Backend:** Node.js, Express.js, REST APIs
+- **Database:** MongoDB, Supabase, Firebase
+- **Other:** Git, GitHub, Agile/Scrum
+- **Currently Learning:** Angular, GraphQL
