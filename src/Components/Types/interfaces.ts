@@ -26,6 +26,22 @@ export interface ValidLogin {
   numberValid: boolean;
 }
 
+export type Post = {
+  author: string;
+  title: string;
+  ups: number;
+  url: string;
+  permalink: string;
+  selfText: string;
+  num_comments: number;
+  thumbnail?: string;
+  created_utc: number;
+  name: string;
+  likes?: boolean;
+  saved?: boolean;
+  token?: string;
+};
+
 export interface BlogPost {
   id: string;
   title: string;

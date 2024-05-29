@@ -1,19 +1,32 @@
 import { MembershipPricing } from "../Types/interfaces";
-import { PricingCard } from "./PricingCard";
+import { DummyPricing, PricingCard } from "./PricingCard";
 
 export const Pricing = () => {
   const pricingPlans: MembershipPricing[] = [
     {
       name: "Basic Plan",
       price: 0,
-      perks: ["Unlimited Posts", "Unlimited Comments"],
+      perks: ["Unlimited Posts", "Unlimited Comments", "Limited Views on Premium Posts"],
     },
     {
-      name: "Basic Plan",
-      price: 0,
-      perks: ["Unlimited Posts", "Unlimited Comments"],
+      name: "Medium Member",
+      price: 5,
+      perks: [
+        "Read member-only stories",
+        "Support writers you read most",
+        "Listen to audio narrations",
+        "Create your own publications",
+      ],
     },
-    { name: "Basic Plan", price: 0, perks: ["Unlimited Posts", "Unlimited Comments"] },
+    {
+      name: "Friend of Medium",
+      price: 15,
+      perks: [
+        "All Medium Member Benefits",
+        "Share member-only stories with anyone and drive more earnings for writers",
+        "Customize app icon",
+      ],
+    },
   ];
 
   return (
@@ -35,6 +48,7 @@ export const Pricing = () => {
               return <PricingCard key={pricingPlan.name} pricingOption={pricingPlan} />;
             })}
           </div>
+          <DummyPricing />
         </div>
       </section>
     </div>
