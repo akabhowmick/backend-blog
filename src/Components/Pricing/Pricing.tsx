@@ -1,5 +1,5 @@
 import { MembershipPricing } from "../Types/interfaces";
-import { DummyPricing, PricingCard } from "./PricingCard";
+import { PricingCard } from "./PricingCard";
 
 export const Pricing = () => {
   const pricingPlans: MembershipPricing[] = [
@@ -23,34 +23,32 @@ export const Pricing = () => {
       price: 15,
       perks: [
         "All Medium Member Benefits",
-        "Share member-only stories with anyone and drive more earnings for writers",
+        "Drive more earnings for writers",
         "Customize app icon",
       ],
     },
   ];
 
   return (
-    <div>
-      <section className="p-4">
-        <div className="relative bg-clip-border bg-black text-gray-700 flex h-full min-h-[314px] w-full flex-col items-center justify-center rounded-xl px-8">
-          <div className="container mx-auto text-center">
-            <h2 className="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-white mb-4">
-              Pricing
-            </h2>
-            <p className="block antialiased font-sans text-xl font-normal leading-relaxed text-white mb-8 opacity-70">
-              Choose the perfect plan for your blogging experience
-            </p>
-          </div>
-        </div>
-        <div className="px-10 pt-8 pb-16 -mt-16 lg:px-30 xl:px-40">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {pricingPlans.map((pricingPlan) => {
-              return <PricingCard key={pricingPlan.name} pricingOption={pricingPlan} />;
+    <section className="bg-white">
+      <div className="container max-w-full mx-auto py-24 px-6">
+        <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
+          Pricing
+        </h1>
+        <p className="text-center text-lg text-gray-700 mt-2 px-6">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          laudantium, totam rem aperiam.
+        </p>
+        <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
+
+        <div className="max-w-full md:max-w-6xl mx-auto my-3 md:px-8">
+          <div className="relative flex flex-col md:flex-row items-center">
+            {pricingPlans.map((plan, index) => {
+              return <PricingCard key={index} pricingOption={plan} />;
             })}
           </div>
-          <DummyPricing />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
