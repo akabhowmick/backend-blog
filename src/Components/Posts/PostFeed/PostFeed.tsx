@@ -6,8 +6,7 @@ export const PostFeed = () => {
     { id: "2", title: "Blog 1", subtitle: "", category: "", content: [""], date: Date.now() },
     { id: "3", title: "Blog 1", subtitle: "", category: "", content: [""], date: Date.now() },
   ];
-
-  //! styling will be based on this 
+  
   const articleBanners = articles.map((article) => {
     return (
       <div key={article.id} className="article">

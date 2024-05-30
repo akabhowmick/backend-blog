@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./SignIn.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { addUserToDB } from "../../api/UserInfoRequests/CreateUserInfoRequest";
 import { UserInfo, ValidLogin } from "../Types/interfaces";
 
@@ -18,12 +18,12 @@ const initialFormState = {
 };
 
 export const SignIn = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      navigate("/");
-    }
-  }, [navigate]);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (localStorage.getItem("user")) {
+  //     navigate("/");
+  //   }
+  // }, [navigate]);
 
   const [formType, setFormType] = useState("login");
   const [formData, setFormData] = useState<ValidLogin>(initialFormState);
@@ -136,6 +136,7 @@ export const SignIn = () => {
         firstName: "",
         lastName: "",
         phone: "",
+        aboutMe: "",
         followers: [],
         posts: [],
       };

@@ -1,37 +1,14 @@
-1. make the front end (look at medium)
-  => login/sign up
-  => main page 
-  => posts page
-  => account page
-  => writing page 
-  => home page - simple and clean 
-
-2. tables and data
-  => double check data type logic and then the back end endpoints
-  => users
-    => 
-  => followers 
-  => blogs 
-    => comments
-    => likes 
-  => 
-
-  
-3. back end 
-  => only users can post/interact with other users
-  
-
 Timeline: 
 1. watch mock video
 2. set up front end pages 
-  => our story, membership plans (1 day)
   => edits to the user (1 day)
   => login/signup (1 day)
   => posts/feed work (2 days)
 3. back end set up
   => mongo db 
   => node js 
-4. testing (?)
+  => express 
+4. testing
 
 
 ## 📂 Projects

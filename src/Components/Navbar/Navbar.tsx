@@ -15,7 +15,8 @@ export const Navbar = () => {
   const navbarLinks = [
     { linkName: "Home", linkRoute: "/" },
     { linkName: "About", linkRoute: "/about" },
-    { linkName: "Account", linkRoute: "/account" },
+    { linkName: "Account", linkRoute: "/signin" },
+
   ];
 
   const desktopLinks = (
@@ -24,7 +25,7 @@ export const Navbar = () => {
         {navbarLinks.map((link) => {
           return (
             <li key={link.linkName}>
-              <a href={link.linkName} className="text-white">
+              <a href={link.linkRoute} className="text-white">
                 {link.linkName}
               </a>
             </li>
