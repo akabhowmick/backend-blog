@@ -1,10 +1,10 @@
 import { User } from "@supabase/supabase-js";
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import Swal from "sweetalert2";
-import { signOutUserSupabase } from "../api/UserAuthRequests/LogoutUser";
-import { signUpUserSupabase } from "../api/UserAuthRequests/SignUpUser";
-import { updateUserSupabase } from "../api/UserAuthRequests/UpdateUser";
-import { signInUserSupabase } from "../api/UserAuthRequests/SignInUser";
+// import { signOutUserSupabase } from "../api/UserAuthRequests/LogoutUser";
+// import { signUpUserSupabase } from "../api/UserAuthRequests/SignUpUser";
+// import { updateUserSupabase } from "../api/UserAuthRequests/UpdateUser";
+// import { signInUserSupabase } from "../api/UserAuthRequests/SignInUser";
 import { UserSignIn } from "../Components/Types/interfaces";
 
 interface AuthContextType {
@@ -13,8 +13,8 @@ interface AuthContextType {
   loggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   userLoading: boolean;
-  signUpUser: (user: UserSignIn) => Promise<string | undefined>;
-  signInUser: (user: UserSignIn) => Promise<boolean>;
+  signUpUser: (user: UserSignIn) => Promise<void>;
+  signInUser: (user: UserSignIn) => Promise<void>;
   editUserLogin: (email: string, password: string) => Promise<void>;
   logOutUser: () => Promise<void>;
 }
@@ -26,13 +26,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [userLoading, setUserLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const setLocalStorage = (user: User) => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      setUser(user);
-      setLoggedIn(true);
-    }
-  };
+  // const setLocalStorage = (user: User) => {
+  //   if (user) {
+  //     localStorage.setItem("user", JSON.stringify(user));
+  //     setUser(user);
+  //     setLoggedIn(true);
+  //   }
+  // };
 
   useEffect(() => {
     checkUserSession();
@@ -48,47 +48,57 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logOutUser = async () => {
-    const { error } = await signOutUserSupabase();
-    if (!error) {
-      setUser(null);
-      setLoggedIn(false);
-      localStorage.removeItem("user");
-    }
+    setUser(null);
+    setLoggedIn(false);
+    localStorage.removeItem("user");
+    // const { error } = await signOutUserSupabase();
+    // if (!error) {
+    //   setUser(null);
+    //   setLoggedIn(false);
+    //   localStorage.removeItem("user");
+    // }
   };
 
   const signUpUser = async (userInfo: UserSignIn) => {
-    const { data, error } = await signUpUserSupabase(userInfo.email, userInfo.password);
-    if (error) {
-      Swal.fire("Sign up error!", `Invalid credentials: ${error.message}`, "error");
-    }
-    if (data.user) {
-      setLocalStorage(data.user);
-      setUser(data.user);
-      Swal.fire("Sign up success!", "Please verify your account to proceed", "info");
-      return data!.user?.id;
-    }
+    Swal.fire("Sign up success!", `Invalid credentials ${userInfo}`, "info");
+    // const { data, error } = await signUpUserSupabase(userInfo.email, userInfo.password);
+    // if (error) {
+    //   Swal.fire("Sign up error!", `Invalid credentials: ${error.message}`, "error");
+    // }
+    // if (data.user) {
+    //   setLocalStorage(data.user);
+    //   setUser(data.user);
+    //   Swal.fire("Sign up success!", "Please verify your account to proceed", "info");
+    //   return data!.user?.id;
+    // }
   };
 
   const signInUser = async (userInfo: UserSignIn) => {
-    const { data, error } = await signInUserSupabase(userInfo.email, userInfo.password);
-    if (data.user) {
-      setLocalStorage(data.user);
-      return true;
-    } else {
-      Swal.fire("Sign in error!", `Invalid credentials: ${error?.message}`, "error");
-      return false;
-    }
+    Swal.fire("Sign in error!", `Invalid credentials ${userInfo}`, "error");
+    // const { data, error } = await signInUserSupabase(userInfo.email, userInfo.password);
+    // if (data.user) {
+    //   setLocalStorage(data.user);
+    //   return true;
+    // } else {
+    //   Swal.fire("Sign in error!", `Invalid credentials: ${error?.message}`, "error");
+    //   return false;
+    // }
   };
 
   const editUserLogin = async (email: string, password: string) => {
-    const { data, error } = await updateUserSupabase(email, password);
-    if (data.user) {
-      setLocalStorage(data.user);
-      Swal.fire("Login updated!", "The user credentials edit was successful!", "success");
-    }
-    if (error) {
-      Swal.fire("Update error!", `Update Error: ${error.message}`, "error");
-    }
+    Swal.fire(
+      "Login updated!",
+      `The user credentials edit was successful! ${email} ${password}`,
+      "success"
+    );
+    // const { data, error } = await updateUserSupabase(email, password);
+    // if (data.user) {
+    //   setLocalStorage(data.user);
+    //   Swal.fire("Login updated!", "The user credentials edit was successful!", "success");
+    // }
+    // if (error) {
+    //   Swal.fire("Update error!", `Update Error: ${error.message}`, "error");
+    // }
   };
 
   return (
