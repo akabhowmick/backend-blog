@@ -145,7 +145,7 @@ export const SignIn = () => {
     }
     if (userSignedIn) {
       // getUserFromLocalStorage();
-      navigate("/account");
+      // navigate("/account");
       resetForm();
     }
   };
