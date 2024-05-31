@@ -1,10 +1,6 @@
 import { User } from "@supabase/supabase-js";
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import Swal from "sweetalert2";
-// import { signOutUserSupabase } from "../api/UserAuthRequests/LogoutUser";
-// import { signUpUserSupabase } from "../api/UserAuthRequests/SignUpUser";
-// import { updateUserSupabase } from "../api/UserAuthRequests/UpdateUser";
-// import { signInUserSupabase } from "../api/UserAuthRequests/SignInUser";
 import { UserSignIn } from "../Components/Types/interfaces";
 
 interface AuthContextType {
@@ -25,14 +21,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [userLoading, setUserLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
-
-  // const setLocalStorage = (user: User) => {
-  //   if (user) {
-  //     localStorage.setItem("user", JSON.stringify(user));
-  //     setUser(user);
-  //     setLoggedIn(true);
-  //   }
-  // };
 
   useEffect(() => {
     checkUserSession();
@@ -119,6 +107,5 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     </AuthContext.Provider>
   );
 };
-
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAuthContext = () => useContext(AuthContext);
