@@ -7,7 +7,9 @@ import { PageNotFound } from "../PageNotFound/PageNotFound";
 import { SignIn } from "../Signin/SignIn";
 import { Pricing } from "../Pricing/Pricing";
 import { About } from "../About/About";
+import UserPost from "../Posts/AddPost/AddPost";
 
+//! to be changed later
 export function Routes() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -16,8 +18,9 @@ export function Routes() {
         <Route path="/account" element={<Account />} />
         <Route path="/feed" element={<PostFeed />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/pricing" element={<Pricing/>} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/userpost" element={<UserPost />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     )

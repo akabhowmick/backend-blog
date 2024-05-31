@@ -1,19 +1,9 @@
 import styled from 'styled-components';
-
+//! need to be edited
 export const PostContainer = styled.article`
   line-height: 1.6;
   font-size: 1.125em;
-`;
-
-export const PostTitle = styled.h2`
-  font-size: 2em;
-  margin-bottom: 10px;
-`;
-
-export const PostDate = styled.p`
-  font-size: 0.9em;
-  color: #888;
-  margin-bottom: 20px;
+  background-color: white;
 `;
 
 export const PostContent = styled.div`
@@ -26,14 +16,8 @@ export const PostContent = styled.div`
   blockquote {
     border-left: 4px solid #ddd;
     padding-left: 20px;
-    color: #666;
+    color: black;
     margin: 20px 0;
-  }
-
-  pre {
-    background: #f6f8fa;
-    padding: 20px;
-    overflow-x: auto;
   }
 
   code {
@@ -61,8 +45,6 @@ export const initialMarkdownContent = `
 # Your Post Title
 
 This is a sample blog post.
-
-![Sample Image](https://via.placeholder.com/800x400)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 

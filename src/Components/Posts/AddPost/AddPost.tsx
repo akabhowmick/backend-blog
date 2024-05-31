@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useBlogPostContext } from "../../../providers/BlogPostProvider";
 import { BlogPost } from "../../Types/interfaces";
-import { initialMarkdownContent, PostContainer, PostTitle, PostDate, PostContent, EditContainer, EditTextarea } from "./PostStyled";
+import { initialMarkdownContent, PostContainer, PostContent, EditContainer, EditTextarea } from "./PostStyled";
 import ReactMarkdown from 'react-markdown';
 
 const dummyBlogPost = {
@@ -31,8 +31,6 @@ const UserPost = () => {
 
   return (
     <PostContainer>
-      <PostTitle>Your Post Title</PostTitle>
-      <PostDate>January 1, 2024</PostDate>
       <PostContent>
         <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </PostContent>
