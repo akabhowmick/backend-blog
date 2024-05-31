@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { useBlogPostContext } from "../../../providers/BlogPostProvider";
 import { BlogPost } from "../../Types/interfaces";
+import { initialMarkdownContent, PostContainer, PostTitle, PostDate, PostContent, EditContainer, EditTextarea } from "./PostStyled";
+import ReactMarkdown from 'react-markdown';
 
 const dummyBlogPost = {
   id: "123",
@@ -19,11 +22,26 @@ const UserPost = () => {
     addPost(post);
   };
 
+  const [markdownContent, setMarkdownContent] = useState<string>(initialMarkdownContent);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+
+  const handleEditChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMarkdownContent(event.target.value);
+  };
+
   return (
-    <>
-      <h2>User Post</h2>
-      <button onClick={() => addPostToProvider(dummyBlogPost)}>Add Post!</button>
-    </>
+    <PostContainer>
+      <PostTitle>Your Post Title</PostTitle>
+      <PostDate>January 1, 2024</PostDate>
+      <PostContent>
+        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+      </PostContent>
+      <EditContainer>
+        <button onClick={() => setIsEditing(!isEditing)}>{isEditing ? "Preview" : "Edit"}</button>
+        {isEditing && <EditTextarea value={markdownContent} onChange={handleEditChange} />}
+      </EditContainer>
+      <button onClick={() => addPostToProvider(dummyBlogPost)}>Submit</button>
+    </PostContainer>
   );
 };
 
