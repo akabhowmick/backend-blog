@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { useBlogPostContext } from "../../../providers/BlogPostProvider";
 import { BlogPost } from "../../Types/interfaces";
+import { Form } from "./Form";
 
 const UserPost = () => {
   const { addPost } = useBlogPostContext();
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [category, setCategory] = useState("");
-  const [content, setContent] = useState<string[]>([""]); // Array to hold content
+  const [content, setContent] = useState<string[]>([""]);
 
   const handleAddContentTextbox = () => {
-    setContent([...content, ""]); // Add an empty string to the content array
+    setContent([...content, " "]);
   };
 
   const handleContentChange = (index: number, value: string) => {
@@ -19,8 +20,8 @@ const UserPost = () => {
     setContent(newContent);
   };
 
-  const handleSubmit = () => {
-    // Here you can handle submission of the post data
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const newPost: BlogPost = {
       id: "123",
       title: title,
@@ -32,13 +33,12 @@ const UserPost = () => {
       comments: [],
     };
     addPost(newPost);
-    console.log({ title, subtitle, category, content });
   };
 
   return (
     <div>
       <h2>Add Post</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="add-form-container" onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>Title:</label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -64,6 +64,7 @@ const UserPost = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      <Form />
     </div>
   );
 };
