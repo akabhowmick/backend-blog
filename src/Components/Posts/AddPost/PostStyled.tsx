@@ -14,7 +14,7 @@ export const PostContent = styled.div`
   }
 
   blockquote {
-    border-left: 4px solid #ddd;
+    border-left: 4px solid #fff;
     padding-left: 20px;
     color: black;
     margin: 20px 0;
@@ -56,3 +56,6 @@ console.log('Hello, world!');
 
 More content...
 `;
+
+// ! redo this to use a form (?)
+// ! should be an add button that allows to add a paragraph
