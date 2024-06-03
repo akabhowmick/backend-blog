@@ -10,3 +10,8 @@
   align-items: center;
   width: 100%;
 }
+
+.form-container{
+  background-color: aliceblue;
+  padding: 2rem;
+}
